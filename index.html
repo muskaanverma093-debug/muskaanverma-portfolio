@@ -1,0 +1,1228 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muskaan Verma Newsstand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Archivo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#FAF7F1;
+  --band:#FFE45E;
+  --paper:#FFFFFF;
+  --ink:#1B0E3F;
+  --ink-soft:#5B4A8C;
+  --rule:#E2DACB;
+  --red:#FF3B2E;
+  --pink:#FF3D8E;
+  --blue:#1F3CFF;
+  --teal:#00B3A4;
+  --shadow:rgba(27,14,63,.22);
+  --focus:#1F3CFF;
+  --red-ink:#C21807;
+  --pink-ink:#BE1566;
+  --teal-ink:#00695F;
+  --blue-ink:#1F3CFF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#150B33;
+    --band:#2A1A5C;
+    --paper:#1F1145;
+    --ink:#FFF3B8;
+    --ink-soft:#B9A6E8;
+    --rule:#4A2F8C;
+    --red:#FF6A5E;
+    --pink:#FF7DB6;
+    --blue:#8C9BFF;
+    --teal:#3FD9CB;
+    --shadow:rgba(0,0,0,.6);
+    --focus:#8C9BFF;
+    --red-ink:#FF8A7A;
+    --pink-ink:#FF7DB6;
+    --teal-ink:#3FD9CB;
+    --blue-ink:#8C9BFF;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#150B33;
+  --band:#2A1A5C;
+  --paper:#1F1145;
+  --ink:#FFF3B8;
+  --ink-soft:#B9A6E8;
+  --rule:#4A2F8C;
+  --red:#FF6A5E;
+  --pink:#FF7DB6;
+  --blue:#8C9BFF;
+  --teal:#3FD9CB;
+  --shadow:rgba(0,0,0,.6);
+  --focus:#8C9BFF;
+  --red-ink:#FF8A7A;
+  --pink-ink:#FF7DB6;
+  --teal-ink:#3FD9CB;
+  --blue-ink:#8C9BFF;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%}
+
+
+/* folio: the running head at the top of every page */
+.folio{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+}
+.folio .leader{flex:1;height:0;border-bottom:1.5px dotted var(--rule)}
+.folio .pg{color:var(--ink);font-weight:500}
+.regmark{width:16px;height:16px;flex:0 0 16px;opacity:.75}
+.regmark circle{fill:none;stroke:var(--red);stroke-width:1.4}
+.regmark line{stroke:var(--red);stroke-width:1.4}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+
+.wrap{max-width:1340px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.label{font-family:"DM Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.serif{font-family:"Bodoni Moda",Didot,Georgia,serif}
+
+/* ---------- masthead ---------- */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.topbar nav{display:flex;gap:26px;flex-wrap:wrap}
+.topbar nav a{font-family:"DM Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.topbar nav a:hover{border-bottom-color:var(--red);color:var(--red)}
+
+.hero{padding:clamp(20px,3vw,34px) 0 0}
+.edition{
+  display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between;
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+  padding:7px 0;margin-bottom:clamp(18px,3vw,30px);
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+}
+.masthead{
+  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:500;
+  line-height:.8;letter-spacing:-.03em;font-size:clamp(3.6rem,14.5vw,13rem);
+  margin:0;text-transform:lowercase;text-wrap:balance;
+}
+.masthead em{font-style:italic;color:var(--red)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.9fr);gap:clamp(24px,4vw,60px);align-items:end;margin-top:clamp(24px,3vw,44px);padding-bottom:clamp(28px,4vw,52px)}
+.hero-thesis{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.65rem,3.9vw,3.1rem);line-height:1.16;max-width:24ch;margin:0;font-weight:600;letter-spacing:-.015em}
+.hero-thesis b{font-weight:600;font-style:italic;color:var(--blue)}
+.stamp{border:2px solid var(--ink);background:#FFBCD8;color:#1B0E3F;padding:16px 20px;font-family:"DM Mono",monospace;font-size:12px;line-height:1.9;letter-spacing:.09em;text-transform:uppercase;transform:rotate(-1.6deg);box-shadow:6px 6px 0 var(--ink)}
+.stamp .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--band);margin-right:8px}
+.hero-side{display:flex;flex-direction:column;align-items:flex-start;gap:0;justify-content:flex-end}
+.portrait{margin:0;background:var(--paper);border:2px solid var(--ink);padding:10px 10px 0;box-shadow:10px 10px 0 var(--blue);transform:rotate(1.8deg);max-width:280px}
+.portrait img{display:block;width:100%;height:auto}
+.portrait figcaption{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding:10px 2px 12px}
+.hero-side .stamp{margin:0}
+.about-side{display:flex;flex-direction:column;gap:32px}
+.portrait-lg{max-width:100%;transform:rotate(-1.4deg);box-shadow:12px 12px 0 var(--pink)}
+.hero-band{display:flex;height:16px;border:2px solid var(--ink);overflow:hidden}
+.hero-band span{flex:1}
+
+/* ---------- contents ---------- */
+.contents{
+  margin-top:clamp(30px,4vw,54px);border:2px solid var(--ink);background:var(--paper);
+  padding:clamp(20px,2.6vw,30px) clamp(20px,3vw,34px) clamp(16px,2vw,24px);
+  box-shadow:9px 9px 0 var(--teal);
+}
+.contents-title{
+  font-family:"Bodoni Moda",Georgia,serif;font-weight:500;text-transform:lowercase;
+  font-size:clamp(1.5rem,3vw,2.2rem);margin:0 0 14px;line-height:1;
+  border-bottom:2px solid var(--ink);padding-bottom:12px;
+}
+.contents-list{list-style:none;margin:0;padding:0;columns:2;column-gap:clamp(28px,4vw,56px)}
+.contents-list li{break-inside:avoid;margin:0 0 2px}
+.contents-list a{
+  display:flex;align-items:baseline;gap:10px;text-decoration:none;
+  padding:9px 4px;border-bottom:1px solid var(--rule);
+}
+.contents-list a:hover{background:var(--band)}
+.contents-list a:hover .ct-name{color:var(--red)}
+.ct-pg{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--red-ink);flex:0 0 auto}
+.ct-name{font-family:"Bodoni Moda",Georgia,serif;font-size:1.22rem;line-height:1;flex:0 0 auto}
+.ct-leader{flex:1 1 auto;min-width:14px;border-bottom:1.5px dotted var(--rule);transform:translateY(-4px)}
+.ct-note{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);flex:0 0 auto}
+
+/* ---------- sections ---------- */
+section{padding:clamp(60px,8vw,118px) 0 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:clamp(30px,4vw,52px)}
+.sec-head h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:clamp(2.2rem,6vw,4.4rem);margin:0;line-height:.95;text-transform:lowercase;letter-spacing:-.02em}
+.sec-head p{margin:0 0 6px;max-width:46ch;font-size:16.5px;color:var(--ink-soft)}
+.sec-head .eyebrow{display:block;margin-bottom:10px}
+#newsstand .sec-head h2{color:var(--blue)}
+#layers .sec-head h2{color:var(--red)}
+#toolkit .sec-head h2{color:var(--teal)}
+#brands .sec-head h2{color:var(--pink)}
+#desk .sec-head h2{color:var(--blue)}
+
+/* ---------- bag + magazines ---------- */
+.newsstand{position:relative;margin:0 auto;max-width:1040px}
+.fan{position:relative;height:clamp(440px,46vw,660px);display:flex;justify-content:center;align-items:flex-end}
+.bag-photo{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(390px,78%);height:auto;z-index:3;pointer-events:none;filter:drop-shadow(0 22px 28px var(--shadow))}
+.covers{position:absolute;bottom:250px;left:50%;transform:translateX(-50%);width:100%;height:340px;z-index:2}
+.cover{
+  position:absolute;bottom:0;left:50%;width:188px;height:268px;margin-left:-94px;
+  border:2px solid var(--ink);padding:0;cursor:pointer;overflow:hidden;
+  background:var(--cv);color:var(--cv-ink);text-align:left;
+  display:flex;flex-direction:column;
+  box-shadow:0 14px 28px -14px var(--shadow);
+  transform-origin:50% 250%;
+  transition:transform .42s cubic-bezier(.2,.8,.3,1),box-shadow .3s;
+  font-family:"Archivo",sans-serif;
+}
+.cover:hover,.cover:focus-visible{transform:rotate(var(--rot)) translateY(-32px) scale(1.05);box-shadow:0 32px 50px -18px var(--shadow);z-index:9}
+/* halftone, printed into the cover stock itself */
+.cover::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(currentColor 1px, transparent 1.35px);
+  background-size:4px 4px;opacity:.12;
+}
+.cover > *{position:relative;z-index:1}
+
+/* the masthead block, vogue-style: name across the top, dateline under it */
+.cv-mast{
+  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;
+  text-transform:uppercase;text-align:center;margin:9px 8px 0;
+  font-size:var(--mast, 34px);line-height:.86;letter-spacing:-.025em;
+  white-space:nowrap;
+}
+.cv-dateline{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  margin:6px 10px 0;padding:4px 0 5px;
+  border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+  font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;
+}
+.cv-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;padding:10px 10px 0;position:relative}
+.cv-flash{
+  position:absolute;top:8px;right:8px;width:46px;height:46px;border-radius:50%;
+  background:var(--cv-pop);color:var(--cv-popink);border:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:"DM Mono",monospace;font-size:7px;line-height:1.25;letter-spacing:.06em;
+  text-transform:uppercase;transform:rotate(-11deg);padding:3px;
+}
+.cv-hero{margin:0;font-weight:800;font-size:14px;line-height:1.05;letter-spacing:-.015em;text-transform:uppercase}
+.cv-sub{margin:0;font-size:10.5px;line-height:1.3;font-weight:500;opacity:.92;max-width:88%}
+.cv-kick{
+  margin:0;align-self:flex-start;font-family:"DM Mono",monospace;font-size:8px;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:var(--cv-pop);color:var(--cv-popink);
+  border:1px solid var(--ink);padding:3px 6px;
+}
+.cv-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;padding:8px 10px 9px}
+.cv-read{font-family:"DM Mono",monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+.barcode{
+  width:38px;height:17px;background:
+    repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 2px,currentColor 2px 4px,transparent 4px 6px);
+  opacity:.85;
+}
+.fan-hint{text-align:center;margin-top:26px}
+.rack{display:none}
+</style>
+
+<style>
+/* ---------- the cv ---------- */
+.cv{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.cv-row{
+  display:grid;grid-template-columns:minmax(150px,.26fr) minmax(0,1fr);
+  gap:clamp(14px,3vw,40px);padding:24px 0 26px;border-bottom:1.5px solid var(--rule);position:relative;
+}
+.cv-row::before{content:"";position:absolute;left:-14px;top:30px;width:9px;height:9px;background:var(--mk);border:1.5px solid var(--ink)}
+.cv-when{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:5px}
+.cv-what h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:600;font-size:clamp(1.3rem,2.4vw,1.75rem);margin:0;line-height:1.1;text-transform:lowercase}
+.cv-org{display:inline-block;margin-top:6px;font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mk-ink,var(--ink))}
+.cv-what ul{margin:12px 0 0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:8px}
+.cv-what li{font-size:16px;line-height:1.55;color:var(--ink-soft)}
+.cv-what li::marker{color:var(--mk)}
+.edu{margin-top:clamp(28px,4vw,44px);background:var(--paper);border:2px solid var(--ink);box-shadow:9px 9px 0 var(--band);padding:clamp(22px,3vw,32px)}
+.edu-title{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 18px;font-weight:500;color:var(--ink-soft)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.edu-item h4{font-family:"Bodoni Moda",Georgia,serif;font-weight:600;font-size:1.25rem;margin:8px 0 4px;line-height:1.15}
+.cv-download{
+  display:inline-block;margin-top:26px;font-family:"DM Mono",monospace;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border:2px solid var(--ink);background:var(--band);color:var(--ink);padding:12px 18px;box-shadow:4px 4px 0 var(--ink);
+}
+.cv-download:hover{background:var(--pink);color:#FFFCEC}
+
+/* ---------- tiramisu ---------- */
+.tira{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(30px,4vw,64px);align-items:start}
+.tira-fig{position:relative;display:flex;align-items:center;gap:clamp(34px,5vw,74px)}
+.tira-photo{flex:0 0 clamp(190px,21vw,290px)}
+.tira-photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 16px 24px var(--shadow))}
+.connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.conn-line{stroke:var(--ink);stroke-width:2;stroke-dasharray:6 5;fill:none;opacity:.45}
+.conn-head{fill:var(--ink);opacity:.45}
+.conn-on .conn-line{stroke:var(--red);stroke-width:3;stroke-dasharray:none;opacity:1}
+.conn-on .conn-head{fill:var(--red);opacity:1}
+.stack{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.layer{
+  border:2px solid var(--ink);width:100%;text-align:left;cursor:pointer;color:#20123F;
+  font-family:"Archivo",sans-serif;font-size:15.5px;font-weight:800;
+  padding:0 16px;height:var(--h);display:flex;align-items:center;gap:12px;
+  background:var(--lay);transition:transform .3s cubic-bezier(.2,.8,.3,1),box-shadow .3s;
+}
+.layer:hover,.layer:focus-visible{transform:translateX(10px)}
+.layer[aria-selected="true"]{transform:translateX(16px);box-shadow:-6px 0 0 var(--red)}
+.layer .n{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;opacity:.75}
+.layer-dust{color:#FFF3B8;background:repeating-linear-gradient(115deg,#4A2E1D,#4A2E1D 3px,#36200F 3px,#36200F 6px)}
+.tira-read{background:var(--paper);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--blue);padding:clamp(22px,3vw,34px);min-height:260px}
+.tira-read h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0 0 10px;line-height:1;text-transform:lowercase}
+.tira-read .label{display:block;margin-bottom:14px;color:var(--red-ink)}
+.tira-read p{margin:0;max-width:50ch}
+.tira-foot{margin-top:24px;font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.06em;color:var(--ink-soft)}
+.arrow-line{stroke:var(--ink);stroke-width:2;stroke-dasharray:6 5;fill:none;opacity:.5;transition:opacity .25s,stroke .25s}
+.arrow-head{fill:var(--ink);opacity:.5;transition:opacity .25s,fill .25s}
+.arrow-on .arrow-line{opacity:1;stroke:var(--red);stroke-dasharray:none;stroke-width:3}
+.arrow-on .arrow-head{opacity:1;fill:var(--red)}
+.slice-label{font-family:"DM Mono",monospace;font-size:10px;fill:var(--ink-soft);letter-spacing:.1em}
+
+/* ---------- toolkit ---------- */
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(22px,2.6vw,38px)}
+.kit-col{background:var(--paper);border:2px solid var(--ink);padding:26px 24px 28px;box-shadow:7px 7px 0 var(--kc)}
+.kit-col h3{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--kt);margin:0 0 16px;font-weight:500}
+.kit-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.kit-col li{font-size:16px;border-bottom:1px solid var(--rule);padding-bottom:10px}
+.kit-col li:last-child{border-bottom:0;padding-bottom:0}
+.kit-col li b{font-weight:700}
+.kit-col li span{color:var(--ink-soft);font-size:14.5px}
+
+/* ---------- brands ---------- */
+/* ---------- the contact sheet ---------- */
+.contact-sheet{max-width:1060px;margin:0 auto}
+.cs-strip{background:#17120E;border:2px solid var(--ink);box-shadow:0 16px 30px -18px var(--shadow)}
+.cs-holes{
+  height:20px;
+  background:repeating-linear-gradient(90deg,transparent 0 12px,#F3EBD8 12px 28px);
+  opacity:.92;
+}
+.cs-frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;padding:8px}
+.cs-frame{
+  position:relative;border:0;cursor:pointer;padding:16px 12px 26px;min-height:150px;
+  background:var(--fc);color:#FFF3B8;text-align:left;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:6px;
+  font-family:"Archivo",sans-serif;transition:filter .2s;
+}
+.cs-frame:hover{filter:brightness(1.14)}
+.cs-name{font-family:"Bodoni Moda",Georgia,serif;font-size:1.35rem;line-height:1;letter-spacing:-.01em}
+.cs-cat{font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.88}
+.cs-no{
+  position:absolute;left:8px;bottom:6px;font-family:"DM Mono",monospace;font-size:9px;
+  letter-spacing:.12em;color:#FF6A3D;background:#17120E;padding:2px 5px;
+}
+.cs-ring{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);pointer-events:none;opacity:0;transition:opacity .2s}
+.cs-frame[aria-selected="true"] .cs-ring{opacity:1}
+.cs-ring ellipse{fill:none;stroke:#FF2D18;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:190 14;}
+.cs-caption{
+  display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;
+  margin-top:20px;padding-top:16px;border-top:1.5px solid var(--rule);
+}
+.cs-mark{
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red-ink);flex:0 0 auto;
+}
+.cs-why{margin:0;font-size:17.5px;line-height:1.55;max-width:62ch;flex:1 1 320px}
+
+/* ---------- the desk ---------- */
+.desk-scene{position:relative;margin-top:96px}
+.desk-papers{position:absolute;left:0;right:0;bottom:49.3%;display:flex;justify-content:center;align-items:flex-end;gap:clamp(12px,1.8vw,26px);z-index:3}
+.note{
+  background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--nc);
+  padding:18px 20px 20px;width:clamp(190px,17vw,244px);display:flex;flex-direction:column;gap:9px;
+}
+.note:nth-child(1){transform:rotate(-2deg)}
+.note:nth-child(2){transform:rotate(1.2deg)}
+.note:nth-child(3){transform:rotate(-1deg)}
+.note h3{margin:0;font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+.note p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-soft)}
+.note .tick{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--nt)}
+.desk-svg{display:block;width:100%;height:auto;position:relative;z-index:1}
+.desk-top{fill:var(--ink)}
+.desk-edge{fill:var(--blue)}
+.desk-leg{fill:var(--ink)}
+.obj-screen{fill:var(--ink)}
+.obj-glass{fill:var(--teal)}
+.obj-key{fill:var(--ink-soft)}
+.obj-mug{fill:var(--red)}
+.obj-coffee{fill:#3A2416}
+.obj-pot{fill:var(--pink)}
+.obj-leaf{fill:var(--teal)}
+.obj-line{stroke:var(--band);stroke-width:2.5;fill:none;stroke-linecap:round}
+.obj-book{fill:var(--band)}
+.obj-pen{fill:var(--pink)}
+
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr);gap:clamp(28px,4vw,56px)}
+.about-lede{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.3;margin:0 0 22px}
+.about-body{font-size:18px}
+.about-body::before{content:"";display:block;width:64px;height:6px;background:var(--pink);margin-bottom:18px}
+.about p{max-width:60ch}
+.offduty{background:var(--band);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--red);padding:26px}
+.offduty h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:1.7rem;margin:0 0 12px;text-transform:lowercase}
+.offduty p{font-size:16px;margin:0;color:var(--ink-soft)}
+
+/* ---------- colophon ---------- */
+footer{margin-top:clamp(64px,8vw,110px);border-top:2px solid var(--ink);padding:48px 0 70px}
+.colophon{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.colophon a{text-decoration:none;border-bottom:2px solid var(--red)}
+.colophon a:hover{color:var(--red)}
+.contact-list{display:flex;flex-direction:column;gap:9px;font-size:16px}
+
+/* ---------- reader ---------- */
+.reader{position:fixed;inset:0;z-index:100;background:var(--ground);overflow-y:auto;display:none}
+.reader.is-open{display:block}
+.reader-inner{max-width:1000px;margin:0 auto;padding:26px clamp(20px,4vw,48px) 100px}
+.reader-bar{position:sticky;top:0;background:var(--ground);padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--ink);z-index:2}
+.close-btn{border:2px solid var(--ink);background:var(--band);color:var(--ink);cursor:pointer;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px}
+.close-btn:hover{background:var(--red);color:#fff}
+.feature-kicker{margin:46px 0 12px;color:var(--red-ink)}
+.feature-title{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;line-height:.92;font-size:clamp(2.6rem,8vw,5.4rem);margin:0;text-transform:lowercase;letter-spacing:-.025em}
+.feature-sub{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.35;margin:20px 0 0;max-width:40ch;color:var(--ink-soft)}
+.feature-band{height:16px;margin:32px 0 36px;border:2px solid var(--ink)}
+.feature-facts{display:flex;gap:36px;flex-wrap:wrap;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:18px 0;margin-bottom:38px}
+.fact{display:flex;flex-direction:column;gap:4px}
+.fact b{font-size:16px;font-weight:700}
+.pull{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.28;border-left:6px solid var(--pink);padding-left:22px;margin:0 0 34px}
+.feature-shots{display:flex;flex-wrap:wrap;gap:34px;margin-top:44px}
+.feature-shots > .shot{flex:1 1 100%}
+.feature-shots > .shot-pair{flex:0 0 auto}
+.shot{margin:0}
+.shot img,.shot video{display:block;width:100%;height:auto;border:2px solid var(--ink);background:#000}
+.shot-wide video{width:100%}
+/* the portrait pair: matched heights so the tops and bottoms line up */
+.shot-pair{--pair-h:clamp(300px,34vw,440px);width:fit-content}
+.shot-pair img,.shot-pair video{height:var(--pair-h);width:auto;max-width:100%}
+/* keep the caption from stretching the figure wider than its media */
+.shot-pair figcaption{width:0;min-width:100%;max-width:none;font-size:10.5px;letter-spacing:.08em}
+.vid-open{display:inline-block;margin-top:6px;color:var(--blue-ink);text-decoration:none;border-bottom:1.5px solid var(--blue-ink)}
+.vid-open:hover{color:var(--red-ink);border-bottom-color:var(--red-ink)}
+.shot figcaption{
+  font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:10px;max-width:70ch;line-height:1.6;
+}
+.feature-body{columns:2;column-gap:52px;column-rule:1.5px solid var(--rule)}
+.feature-body h3{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin:0 0 10px;font-weight:500;break-after:avoid}
+.feature-body section{padding:0;margin:0 0 28px;break-inside:avoid}
+.feature-body p{margin:0}
+.ext{display:inline-block;margin-top:8px;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);background:var(--band);color:var(--ink);padding:12px 18px}
+.ext:hover{background:var(--red);color:#fff}
+
+@media (max-width:1000px){
+  .tira{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr;gap:12px}
+  .feature-body{columns:1}
+}
+@media (max-width:760px){
+  .fan,.fan-hint{display:none}
+  .rack{display:flex;gap:16px;overflow-x:auto;padding:6px 20px 24px;margin:0 -20px;scroll-snap-type:x mandatory}
+  .rack .cover{position:static;margin:0;flex:0 0 196px;height:278px;transform:none;scroll-snap-align:center}
+  .rack .cover:hover,.rack .cover:focus-visible{transform:translateY(-8px)}
+  .tira-fig{flex-direction:column;gap:20px}
+  .tira-photo{flex:0 0 auto;width:190px;margin:0 auto}
+  .connectors{display:none}
+  .cs-frames{grid-template-columns:repeat(2,1fr)}
+  .cs-frame{min-height:118px}
+  .desk-papers{position:static;flex-wrap:wrap;gap:16px}
+  .note{width:100%}
+  .note:nth-child(n){transform:none}
+  .desk-in .note:nth-child(n){transform:none}
+  .desk-scene{margin-top:0}
+  .desk-svg{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .cv-row{grid-template-columns:1fr;gap:8px}
+  .cv-row::before{left:-8px;top:26px}
+  .contents-list{columns:1}
+  .ct-note{display:none}
+  .portrait{max-width:100%;transform:none}
+}
+/* ---------- motion ---------- */
+@keyframes sway{0%,100%{transform:translateX(-50%) rotate(-1.1deg)}50%{transform:translateX(-50%) rotate(1.1deg)}}
+.bag-photo{animation:sway 6.5s ease-in-out infinite;transform-origin:50% 8%}
+
+/* covers start tucked inside the bag and fan out when you reach them */
+.js-motion .covers .cover{opacity:0;transform:rotate(0deg) translateY(60px)}
+.js-motion .covers.fan-in .cover{
+  opacity:1;transform:rotate(var(--rot));
+  transition:transform .85s cubic-bezier(.16,.9,.3,1), opacity .5s ease-out;
+  transition-delay:calc(var(--i) * 95ms);
+}
+.js-motion .covers.fan-in .cover:hover,
+.js-motion .covers.fan-in .cover:focus-visible{
+  transform:rotate(var(--rot)) translateY(-32px) scale(1.05);
+  transition-delay:0ms;transition-duration:.42s;
+}
+
+/* the desk wakes up */
+@keyframes steam{
+  0%{opacity:0;transform:translateY(6px) scaleX(.82)}
+  22%{opacity:.75}
+  100%{opacity:0;transform:translateY(-34px) scaleX(1.25)}
+}
+.steam path{animation:steam 3.6s ease-out infinite;transform-origin:center bottom}
+.steam path:nth-child(2){animation-delay:1.2s}
+.steam path:nth-child(3){animation-delay:2.4s}
+@keyframes leafsway{0%,100%{transform:rotate(-3.5deg)}50%{transform:rotate(3.5deg)}}
+.leaf-a{animation:leafsway 4.2s ease-in-out infinite;transform-origin:50% 100%}
+.leaf-b{animation:leafsway 5.1s ease-in-out infinite reverse;transform-origin:20% 100%}
+@keyframes blink{0%,45%{opacity:1}50%,100%{opacity:0}}
+.caret{animation:blink 1.15s steps(1) infinite}
+@keyframes typeline{0%,12%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}
+.typed{transform-origin:left center;animation:typeline 5s ease-in-out infinite}
+.typed:nth-of-type(2){animation-delay:.6s}
+.typed:nth-of-type(3){animation-delay:1.2s}
+.typed:nth-of-type(4){animation-delay:1.8s}
+
+/* the notes drop onto the desk */
+.js-motion .note{opacity:0;transform:translateY(-26px) rotate(0deg)}
+.desk-in .note{opacity:1;transition:transform .7s cubic-bezier(.2,1.15,.4,1), opacity .45s ease-out}
+.desk-in .note:nth-child(1){transform:rotate(-2deg);transition-delay:60ms}
+.desk-in .note:nth-child(2){transform:rotate(1.2deg);transition-delay:190ms}
+.desk-in .note:nth-child(3){transform:rotate(-1deg);transition-delay:320ms}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .js-motion .covers .cover{opacity:1;transform:rotate(var(--rot))}
+  .js-motion .note{opacity:1}
+}
+</style>
+
+<script>
+/* only hide things for the reveal if scripting is actually running */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.documentElement.classList.add('js-motion');
+}
+</script>
+
+<div class="wrap">
+  <header class="topbar">
+    <span class="label">muskaan verma &nbsp;&middot;&nbsp; issue no. 01 &nbsp;&middot;&nbsp; london / india</span>
+    <nav aria-label="sections">
+      <a href="#newsstand">the work</a>
+      <a href="#experience">experience</a>
+      <a href="#layers">the layers</a>
+      <a href="#toolkit">toolkit</a>
+      <a href="#brands">brands i watch</a>
+      <a href="#desk">from my desk</a>
+      <a href="#about">about</a>
+      <a href="https://docs.google.com/document/d/1rrW_FPi32zWEzwmEvANVTUqHi3gESAXuZQRXQAg_Fsw/edit?usp=sharing" target="_blank" rel="noopener">cv</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="edition">
+      <span id="editionMonth">october edition</span>
+      <span>london &amp; india</span>
+      <span>vol. i &middot; no. 01</span>
+      <span>free with every application</span>
+    </div>
+    <h1 class="masthead">muskaan <em>verma</em></h1>
+    <div class="hero-grid">
+      <p class="hero-thesis">marketing, and a habit of learning <b>whatever the project needs</b>.</p>
+      <div class="hero-side">
+        <div class="stamp">
+          <span class="dot"></span>available now<br>
+          marketing &amp; founder's office<br>
+          entry level &middot; uk / india
+        </div>
+      </div>
+    </div>
+    <div class="hero-band" aria-hidden="true">
+      <span style="background:var(--red)"></span>
+      <span style="background:var(--pink)"></span>
+      <span style="background:var(--blue)"></span>
+      <span style="background:var(--band)"></span>
+      <span style="background:var(--teal)"></span>
+    </div>
+  </div>
+
+
+  <!-- ============ CONTENTS ============ -->
+  <nav class="contents" aria-label="in this issue">
+    <h2 class="contents-title">in this issue</h2>
+    <ol class="contents-list">
+      <li><a href="#newsstand"><span class="ct-pg">01</span><span class="ct-name">the newsstand</span><span class="ct-leader"></span><span class="ct-note">six projects, six covers</span></a></li>
+      <li><a href="#experience"><span class="ct-pg">02</span><span class="ct-name">where i've worked</span><span class="ct-leader"></span><span class="ct-note">five roles, two degrees</span></a></li>
+      <li><a href="#layers"><span class="ct-pg">03</span><span class="ct-name">what i'm made of</span><span class="ct-leader"></span><span class="ct-note">five layers, one slice</span></a></li>
+      <li><a href="#toolkit"><span class="ct-pg">04</span><span class="ct-name">toolkit</span><span class="ct-leader"></span><span class="ct-note">tools, with proof</span></a></li>
+      <li><a href="#brands"><span class="ct-pg">05</span><span class="ct-name">brands i watch</span><span class="ct-leader"></span><span class="ct-note">six frames, one ringed</span></a></li>
+      <li><a href="#desk"><span class="ct-pg">06</span><span class="ct-name">from my desk</span><span class="ct-leader"></span><span class="ct-note">who i'm reading about</span></a></li>
+      <li><a href="#about"><span class="ct-pg">07</span><span class="ct-name">about me</span><span class="ct-leader"></span><span class="ct-note">and where to find me</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ NEWSSTAND ============ -->
+  <section id="newsstand">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / the newsstand</span><span class="leader"></span><span class="pg">p. 01</span></div>
+    <div class="sec-head">
+      <h2>the newsstand</h2>
+      <p><span class="label eyebrow">six issues, one bag</span>Every piece of work is its own magazine. Pull one out and read the whole report.</p>
+    </div>
+
+    <div class="newsstand">
+      <div class="fan">
+        <div class="covers" id="covers"></div>
+        <img class="bag-photo" id="bagPhoto" src="images/bag-cutout.png" alt="" aria-hidden="true">
+      </div>
+
+      <p class="fan-hint label">hover to lift &nbsp;&middot;&nbsp; click any cover to read the full report</p>
+      <div class="rack" id="rack"></div>
+    </div>
+  </section>
+
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / where i've worked</span><span class="leader"></span><span class="pg">p. 02</span></div>
+    <div class="sec-head">
+      <h2>where i've worked</h2>
+      <p><span class="label eyebrow">the cv, abridged</span>Five roles, two degrees, and the bits that actually taught me something.</p>
+    </div>
+
+    <ol class="cv">
+      <li class="cv-row" style="--mk:var(--red)">
+        <div class="cv-when">oct 2023 &ndash; jun 2024</div>
+        <div class="cv-what">
+          <h3>vice president, events, workshops &amp; activities</h3>
+          <span class="cv-org">AIESEC Cardiff</span>
+          <ul>
+            <li>Built a sponsorship pipeline from nothing. No existing relationships, no playbook, turning cold outreach into signed agreements through persistent follow-up.</li>
+            <li>Delivered a full programme of events on budget and to deadline.</li>
+            <li>Analysed engagement across social and email, and turned the analysis into changes rather than observations.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="cv-row" style="--mk:var(--blue)">
+        <div class="cv-when">apr 2024 &ndash; aug 2024</div>
+        <div class="cv-what">
+          <h3>marketing intern</h3>
+          <span class="cv-org">Therapy Works</span>
+          <ul>
+            <li>Owned campaigns end to end across email, social and content, tracking performance in Google Analytics and Excel.</li>
+            <li>Ran a content calendar and wrote brand-aligned copy, graphics and captions across three platforms.</li>
+            <li>Diagnosed underperforming messaging and retested it, improving open and click-through rates.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="cv-row" style="--mk:var(--teal)">
+        <div class="cv-when">jun 2023 &ndash; aug 2023</div>
+        <div class="cv-what">
+          <h3>marketing intern</h3>
+          <span class="cv-org">Dynos Education</span>
+          <ul>
+            <li>Researched comparable products and audience behaviour, and translated the findings into promotional strategy and messaging for new releases.</li>
+            <li>Edited content ahead of publication for accuracy and consistency.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="cv-row" style="--mk:var(--pink)">
+        <div class="cv-when">2023</div>
+        <div class="cv-what">
+          <h3>retail assistant</h3>
+          <span class="cv-org">Principality Stadium, Cardiff</span>
+          <ul>
+            <li>Live event-day operations and high-volume retail at one of the UK's largest venues, learning what it takes to hold a brand and a guest experience steady under real time pressure.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="cv-row" style="--mk:var(--red)">
+        <div class="cv-when">apr 2022 &ndash; jun 2022</div>
+        <div class="cv-what">
+          <h3>editorial &amp; marketing intern</h3>
+          <span class="cv-org">Blackspine Publishing</span>
+          <ul>
+            <li>Coordinated editorial, sales and production to land multiple B2B product launches on time and on brand.</li>
+            <li>Built awareness on Instagram and Facebook through a regular, self-managed content programme.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
+    <div class="edu">
+      <h3 class="edu-title">education</h3>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <span class="cv-when">sept 2025 &ndash; sept 2026</span>
+          <h4>MSc Entrepreneurship</h4>
+          <span class="cv-org">University College London</span>
+        </div>
+        <div class="edu-item">
+          <span class="cv-when">sept 2022 &ndash; jun 2025</span>
+          <h4>BSc Business Management, 2:1</h4>
+          <span class="cv-org">Cardiff University</span>
+        </div>
+      </div>
+      <a class="cv-download" href="https://docs.google.com/document/d/1rrW_FPi32zWEzwmEvANVTUqHi3gESAXuZQRXQAg_Fsw/edit?usp=sharing" target="_blank" rel="noopener">read the full cv &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ============ THE LAYERS ============ -->
+  <section id="layers">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / what i'm made of</span><span class="leader"></span><span class="pg">p. 03</span></div>
+    <div class="sec-head">
+      <h2>what i'm made of</h2>
+      <p>Five layers, set down in order. The coffee soaks up from the bottom and the cocoa goes on last. Click a layer to read it.</p>
+    </div>
+
+    <div class="tira">
+      <div class="tira-fig">
+        <div class="tira-photo"><img id="tiraImg" src="images/tiramisu-cutout.png" alt="a slice of tiramisu showing its five layers"></div>
+        <svg class="connectors" id="connectors" aria-hidden="true"></svg>
+        <div class="stack" role="tablist" aria-label="what i'm made of">
+          <button class="layer layer-dust" role="tab" aria-selected="false" data-layer="5" style="--h:34px" aria-controls="tira-read"><span class="n">05</span> taste</button>
+          <button class="layer" role="tab" aria-selected="false" data-layer="4" style="--h:58px;--lay:#F7E7C3" aria-controls="tira-read"><span class="n">04</span> storytelling</button>
+          <button class="layer" role="tab" aria-selected="false" data-layer="3" style="--h:48px;--lay:#C98F4E" aria-controls="tira-read"><span class="n">03</span> building</button>
+          <button class="layer" role="tab" aria-selected="true" data-layer="2" style="--h:58px;--lay:#F7E7C3" aria-controls="tira-read"><span class="n">02</span> strategy</button>
+          <button class="layer" role="tab" aria-selected="false" data-layer="1" style="--h:66px;--lay:#BC7C40" aria-controls="tira-read"><span class="n">01</span> curiosity</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="tira-read" id="tira-read" role="tabpanel" aria-live="polite">
+          <span class="label" id="tira-label">layer 02</span>
+          <h3 id="tira-title">strategy</h3>
+          <p id="tira-body">What a brand should stand for, and who it is for. Positioning, personas, competitive landscape and a costed six-month go-to-market for UCL's entrepreneurial marketing module, plus business modelling, Ansoff and value stream mapping on AprilCares health.</p>
+        </div>
+        <p class="tira-foot">Tiramisu takes its name from <em>tirami su</em>, which means pick me up. The layers only work stacked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLKIT ============ -->
+  <section id="toolkit">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / toolkit</span><span class="leader"></span><span class="pg">p. 04</span></div>
+    <div class="sec-head">
+      <h2>toolkit</h2>
+      <p><span class="label eyebrow">tools, with proof</span>Things I actually use, each with the work that shows it.</p>
+    </div>
+    <div class="kit">
+      <div class="kit-col" style="--kc:var(--red);--kt:var(--red-ink)">
+        <h3>brand &amp; strategy</h3>
+        <ul>
+          <li><b>positioning &amp; messaging</b> <span>what a brand stands for, in words that land</span></li>
+          <li><b>personas &amp; competitive landscape</b></li>
+          <li><b>go-to-market roadmaps</b> <span>six-month, costed, with risks</span></li>
+          <li><b>venture &amp; business modelling</b> <span>ansoff, mvp canvas, value stream mapping</span></li>
+          <li><b>copywriting</b></li>
+        </ul>
+      </div>
+      <div class="kit-col" style="--kc:var(--blue);--kt:var(--blue-ink)">
+        <h3>build &amp; design</h3>
+        <ul>
+          <li><b>framer</b> <span>learnt it and used it to build a live website</span></li>
+          <li><b>claude code</b> <span>made this site with it</span></li>
+          <li><b>figma</b> <span>prototypes, product flows</span></li>
+          <li><b>canva</b> <span>decks, social, quick turnarounds</span></li>
+        </ul>
+      </div>
+      <div class="kit-col" style="--kc:var(--teal);--kt:var(--teal-ink)">
+        <h3>run &amp; measure</h3>
+        <ul>
+          <li><b>hubspot</b> <span>crm, lifecycle, reporting</span></li>
+          <li><b>meta ads manager</b> <span>ran a live campaign, not a mock-up</span></li>
+          <li><b>funnel analysis</b></li>
+          <li><b>short-form video</b> <span>concept, direction, edit</span></li>
+          <li><b>reporting</b> <span>turning the numbers into a decision</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRANDS ============ -->
+  <section id="brands">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / brands i watch</span><span class="leader"></span><span class="pg">p. 05</span></div>
+    <div class="sec-head">
+      <h2>brands that keep me looking</h2>
+      <p><span class="label eyebrow">not favourites, case studies</span>Six brands I keep an eye on, and what I think they are getting right.</p>
+    </div>
+    <div class="contact-sheet">
+      <div class="cs-strip">
+        <div class="cs-holes" aria-hidden="true"></div>
+        <div class="cs-frames" id="csFrames" role="tablist" aria-label="brands"></div>
+        <div class="cs-holes" aria-hidden="true"></div>
+      </div>
+      <div class="cs-caption">
+        <span class="cs-mark" id="csMark">frame 12a</span>
+        <p class="cs-why" id="csWhy" aria-live="polite"></p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ FROM MY DESK ============ -->
+  <section id="desk">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / from my desk</span><span class="leader"></span><span class="pg">p. 06</span></div>
+    <div class="sec-head">
+      <h2>from my desk</h2>
+      <p><span class="label eyebrow">updated monthly</span>Companies I'm reading about right now. This list is never the same twice.</p>
+    </div>
+
+    <div class="desk-scene">
+      <div class="desk-papers">
+        <article class="note" style="--nc:var(--red);--nt:var(--red-ink)">
+          <span class="tick">added sept 2026</span>
+          <h3>Hollister</h3>
+          <p>The reversible tops are the clever bit. One piece, two outfits, and it photographs as two. They stopped trying to be the 2012 version of themselves and actually looked at what teenagers are buying now.</p>
+        </article>
+        <article class="note" style="--nc:var(--blue);--nt:var(--blue-ink)">
+          <span class="tick">added sept 2026</span>
+          <h3>Nude Project</h3>
+          <p>Two guys from Madrid who built a clothing brand by filming themselves building it. The drops sell out because people have watched the whole thing. The community arrived first and the clothes followed.</p>
+        </article>
+        <article class="note" style="--nc:var(--pink);--nt:var(--pink-ink)">
+          <span class="tick">added aug 2026</span>
+          <h3>Britannia</h3>
+          <p>A creator mispronounced croissant as Prashant, it went everywhere, so Britannia put Prashant on the pack. No campaign. Someone had the nerve to sign it off inside a week, which in FMCG is the hard part.</p>
+        </article>
+      </div>
+
+      <svg class="desk-svg" viewBox="0 0 1200 300" role="img" aria-label="an illustrated desk with a laptop, a mug, a notebook and a plant">
+        <!-- laptop -->
+        <rect class="obj-screen" x="56" y="16" width="182" height="116" rx="6"></rect>
+        <rect class="obj-glass" x="67" y="27" width="160" height="94" rx="3"></rect>
+        <g class="obj-line">
+          <path class="typed" d="M80 48 H170"></path>
+          <path class="typed" d="M80 66 H208"></path>
+          <path class="typed" d="M80 84 H150"></path>
+          <path class="typed" d="M80 102 H192"></path>
+        </g>
+        <rect class="caret" x="196" y="96" width="3" height="12" fill="#FFE45E"></rect>
+        <rect class="obj-key" x="40" y="132" width="214" height="14" rx="5"></rect>
+        <!-- notebook + pen, peeking from behind the papers -->
+        <rect class="obj-book" x="266" y="122" width="150" height="26" rx="3" stroke="#1B0E3F" stroke-width="2"></rect>
+        <rect class="obj-pen" x="286" y="110" width="112" height="9" rx="4" transform="rotate(-7 286 110)"></rect>
+        <!-- mug -->
+        <rect class="obj-mug" x="1004" y="92" width="68" height="60" rx="6"></rect>
+        <path d="M1072 106 q22 0 22 17 t-22 17" fill="none" stroke="#FF3B2E" stroke-width="9"></path>
+        <ellipse class="obj-coffee" cx="1038" cy="94" rx="29" ry="7"></ellipse>
+        <g class="steam" fill="none" stroke="#FFE45E" stroke-width="2.6" stroke-linecap="round" opacity=".9">
+          <path d="M1022 76 q9 -13 0 -26 q-9 -13 0 -24"></path>
+          <path d="M1038 76 q9 -13 0 -26 q-9 -13 0 -24"></path>
+          <path d="M1054 76 q9 -13 0 -26 q-9 -13 0 -24"></path>
+        </g>
+        <!-- plant -->
+        <path class="obj-leaf leaf-a" d="M1130 104 q-30 -44 4 -74 q30 32 -4 74 Z"></path>
+        <path class="obj-leaf leaf-b" d="M1136 106 q32 -32 62 -16 q-20 34 -62 16 Z"></path>
+        <path class="obj-pot" d="M1106 104 H1172 L1162 152 H1116 Z"></path>
+        <!-- desk -->
+        <rect class="desk-top" x="40" y="152" width="1120" height="20" rx="4"></rect>
+        <rect class="desk-edge" x="40" y="172" width="1120" height="14" rx="3"></rect>
+        <rect class="desk-leg" x="104" y="186" width="22" height="104" rx="4"></rect>
+        <rect class="desk-leg" x="1074" y="186" width="22" height="104" rx="4"></rect>
+        <rect class="desk-leg" x="742" y="186" width="230" height="98" rx="5"></rect>
+        <rect x="774" y="208" width="72" height="7" rx="3.5" fill="#FFE45E"></rect>
+        <rect x="774" y="248" width="72" height="7" rx="3.5" fill="#FFE45E"></rect>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="folio"><svg class="regmark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5"></circle><line x1="8" y1="0" x2="8" y2="16"></line><line x1="0" y1="8" x2="16" y2="8"></line></svg><span>muskaan verma / about me</span><span class="leader"></span><span class="pg">p. 07</span></div>
+    <div class="sec-head">
+      <h2>about me</h2>
+      <p><span class="label eyebrow">london / india</span>UCL entrepreneurship graduate, currently looking for the first proper one.</p>
+    </div>
+    <div class="about">
+      <div>
+        <p class="about-lede">I'm Muskaan. I like the part where there's nothing yet and someone still has to decide what it should be.</p>
+        <p class="about-body">Working out what a brand stands for. Figuring out why a product isn't landing. Writing copy that does its job. At AIESEC I built a sponsorship pipeline from nothing, no contacts, no playbook, just cold outreach and a lot of following up. Then I ran a commercial campaign end to end and read the numbers properly, which taught me more than any brief has.</p>
+        <p style="margin-top:20px">I learn tools when I need them. Framer for my first site, Claude Code for this one, HubSpot and Canva because the job asked for them. I care about the details other people skip, the caption that is slightly off or the slide nobody will read. I don't panic when it gets busy. And I'll say when something is new to me rather than guess and waste a month finding out.</p>
+      </div>
+      <div class="about-side">
+      <figure class="portrait portrait-lg">
+        <img src="images/muskaan-about.jpg" alt="Muskaan Verma standing by the Thames, Westminster Bridge and the Houses of Parliament behind her">
+      </figure>
+      <aside class="offduty">
+        <h3>when i'm not working</h3>
+        <p>Gym, guitar, and a lot of walking. I'll go out of my way for a food place someone mentioned once, and my camera roll is mostly shopfronts.</p>
+      </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="colophon">
+      <div class="contact-list">
+        <span class="label">get in touch</span>
+        <a href="mailto:muskaanverma093@gmail.com">muskaanverma093@gmail.com</a>
+        <a href="https://www.linkedin.com/in/muskaan-verma-79899b239/" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://docs.google.com/document/d/1rrW_FPi32zWEzwmEvANVTUqHi3gESAXuZQRXQAg_Fsw/edit?usp=sharing" target="_blank" rel="noopener">the full cv</a>
+      </div>
+      <div class="contact-list">
+        <span class="label">currently</span>
+        <span>based in london / india</span>
+        <span>open to full-time roles in marketing<br>&amp; founder's office</span>
+      </div>
+      <div class="contact-list">
+        <span class="label">colophon</span>
+        <span>set in bodoni moda, archivo<br>&amp; dm mono</span>
+        <span>made with claude code</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ READER ============ -->
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="feature-title" hidden>
+  <div class="reader-inner">
+    <div class="reader-bar">
+      <span class="label" id="reader-issue"></span>
+      <button class="close-btn" id="closeReader">close &times;</button>
+    </div>
+    <p class="feature-kicker label" id="feature-kicker"></p>
+    <h2 class="feature-title" id="feature-title"></h2>
+    <p class="feature-sub" id="feature-sub"></p>
+    <div class="feature-band" id="feature-band"></div>
+    <div class="feature-facts" id="feature-facts"></div>
+    <blockquote class="pull" id="feature-pull"></blockquote>
+    <div class="feature-body" id="feature-body"></div>
+    <div class="feature-shots" id="feature-shots"></div>
+  </div>
+</div>
+
+<script>
+const ISSUES = [
+  {
+    id:"mingle", issue:"issue 01", kick:"venture design",
+    shots:[
+      ["images/projects/mingle-1.jpg","The hybrid model: a digital discovery layer sitting on top of county-level in-person activities","","1500x840"],
+      ["images/projects/mingle-2.jpg","Phase one MVP, activity discovery by location and interest","","1500x837"],
+      ["images/projects/mingle-3.jpg","Architecture and tech stack, no-code MVP first and a native build from month seven","","1500x839"]
+    ],
+    bg:"#1F3CFF", ink:"#FFF3B8", rot:-26,
+    mast:"MINGLE", mastSize:38, dateline:"ucl venture", flash:"2.2m<br>retirees",
+    hero:"LONELINESS, COSTED AND PITCHED", coverSub:"A venture for adults 66+, built from a blank page", pop:"#FFE45E", popInk:"#1B0E3F",
+    sub:"A hybrid venture against loneliness in adults 66+, designed, validated and pitched from a blank page.",
+    facts:[["role","venture design \u00b7 customer validation \u00b7 pitching"],["context","ucl technology entrepreneurship"],["pilot","\u00a330\u201350k over 4 months"]],
+    pull:"Loneliness in adults 66+ affects 2.2 million people in the UK, with an impact comparable to smoking 15 cigarettes a day.",
+    body:[
+      ["the brief","For UCL's technology entrepreneurship module, my team built and pitched a venture from scratch. We chose loneliness in adults 66+, a UK health issue affecting 2.2 million retirees, with an impact comparable to smoking 15 cigarettes a day."],
+      ["the approach","We designed a hybrid platform combining county-level in-person activities with a digital discovery layer, validated the USPs through real interviews with retired adults, mapped a phased build from no-code MVP to native platform, and costed the plan at \u00a330\u201350k for a 4-month pilot with funding sources and hiring plan attached."],
+      ["the outcome","Pitched live to judges, with timeline, budget and risks included, not just the concept."]
+    ]
+  },
+  {
+    id:"spacenk", issue:"issue 02", kick:"interactive site",
+    shots:[
+      ["images/projects/spacenk-1.jpg","The pitch site. Flip every product to find the skill behind it","","1500x975"]
+    ],
+    bg:"#C2185B", ink:"#FFF3B8", rot:-16,
+    mast:"SPACE NK", mastSize:31, dateline:"shipped solo", flash:"live<br>site",
+    hero:"I BUILT A WHOLE SITE FOR ONE JOB", coverSub:"Flip cards, a swipe deck, three campaign concepts", pop:"#FFE45E", popInk:"#1B0E3F",
+    sub:"An interactive pitch site made to apply for Space NK's marketing graduate scheme, with flip cards, a swipe deck and three campaign concepts.",
+    facts:[["role","concept \u00b7 copy \u00b7 design \u00b7 build"],["built with","figma and claude code"],["status","live"]],
+    pull:"A cover letter can say you're resourceful. A site you made and sent as a single link just shows it.",
+    body:[
+      ["the brief","Apply for Space NK's marketing graduate scheme in a way that couldn't be skimmed in eight seconds alongside two hundred others."],
+      ["the approach","I built an interactive site to pitch myself: flip cards, a swipe deck, and three original campaign concepts developed for the brand. I wrote it, designed it and built it myself."],
+      ["the outcome","A live site I could send as a single link, and the project that convinced me I could build the things I was proposing."]
+    ],
+    link:["https://muskaanverma093-debug.github.io/muskaan-for-spacenk/","view the space nk pitch"]
+  },
+  {
+    id:"blackspin", issue:"issue 03", kick:"product",
+    shots:[
+      ["images/projects/blackspin-1.jpg","Crazy 8s, eight interface concepts sketched fast before committing to any of them","","1500x831"],
+      ["images/projects/blackspin-2.jpg","Feature prioritisation, scored on impact, ease of use and technical feasibility","","1500x835"]
+    ],
+    bg:"#D81E0F", ink:"#FFF3B8", rot:-5,
+    mast:"BLACKSPIN", mastSize:26, dateline:"product", flash:"year<br>seven",
+    hero:"TEACHERS DROWNING, STUDENTS GONE", coverSub:"An edtech product, from problem to roadmap", pop:"#FFE45E", popInk:"#1B0E3F",
+    sub:"A hypothetical edtech product taking on teacher workload and Year 7 disengagement, from problem definition to roadmap.",
+    facts:[["role","product definition \u00b7 user research \u00b7 prototyping"],["context","ucl product development &amp; prototyping"],["output","figma prototypes, mvp canvas, roadmap"]],
+    pull:"Two problems that look separate until you sit in the room: the teacher's workload and the student's attention are the same problem.",
+    body:[
+      ["the brief","Define and prototype an edtech product addressing teacher workload and Year 7 student disengagement."],
+      ["the approach","Problem definition first, then user research, product prioritisation, Figma prototypes, an MVP canvas and a product roadmap. A lot of it was deciding what not to build."],
+      ["the outcome","A full product case, produced for UCL's product development &amp; prototyping module."]
+    ]
+  },
+  {
+    id:"aprilcares", issue:"issue 04", kick:"operating plan",
+    shots:[
+      ["images/projects/aprilcares-1.jpg","The business model canvas, from key partnerships through to revenue streams","","1500x1224"],
+      ["images/projects/aprilcares-2.jpg","Value stream mapping, first contact through to improved wellbeing","","1042x682"]
+    ],
+    bg:"#FFE45E", ink:"#1B0E3F", rot:5,
+    mast:"APRILCARES", mastSize:24, dateline:"bangalore", flash:"fem<br>tech",
+    hero:"THE PLAN TO ACTUALLY RUN IT", coverSub:"An operating plan for a femtech app in India", pop:"#C2185B", popInk:"#FFF3B8",
+    sub:"The operating plan behind a mental-health app for Indian women, covering the business model, the strategy and the execution roadmap underneath it.",
+    facts:[["role","business modelling \u00b7 strategy \u00b7 operations"],["context","ucl building high impact ventures"],["tools","ansoff matrix, value stream mapping"]],
+    pull:"The interesting part of a venture isn't the idea. It's whether anyone has written down how it runs on a tuesday.",
+    body:[
+      ["the brief","Build a full operating plan for AprilCares, a Bangalore-based femtech app addressing the mental health gap facing Indian women."],
+      ["the approach","Business model design, strategic analysis via the Ansoff matrix, the core operational frameworks, value stream mapping, and an execution roadmap."],
+      ["the outcome","A complete operating plan, produced for UCL's building high impact ventures module."]
+    ]
+  },
+  {
+    id:"paidsocial", issue:"issue 05", kick:"campaign",
+    shots:[
+      ["images/projects/paidsocial-1.jpg","The creative that ran on meta, for Blackspin education","","1500x837"]
+    ],
+    bg:"#1B0E3F", ink:"#FFF3B8", rot:16,
+    mast:"PAID SOCIAL", mastSize:26, dateline:"meta ads", flash:"7,485<br>impressions",
+    hero:"STRATEGY, THEN REAL MONEY", coverSub:"Six-month go-to-market, tested on Facebook ads", pop:"#FFE45E", popInk:"#1B0E3F",
+    sub:"A full brand strategy and six-month go-to-market, then a slice of it put live on Facebook ads to see whether it held.",
+    facts:[["role","positioning \u00b7 paid social \u00b7 funnel analysis"],["spend","\u00a328 of a \u00a3150 budget"],["result","7,485 impressions, 6 qualified leads"]],
+    pull:"A go-to-market plan is a guess until part of it has been bought, served and measured.",
+    body:[
+      ["the brief","Develop a brand strategy for UCL's entrepreneurial marketing strategy &amp; branding module, then find out whether it survived contact with a real audience."],
+      ["the approach","Brand positioning strategy, personas, competitive landscape and a six-month go-to-market roadmap. Then I took a piece of it live through Facebook ads and read the funnel."],
+      ["the outcome","\U00a328 of a \u00a3150 budget actually spent, returning 7,485 impressions and 6 qualified leads. The strategy got tested in market, and I could see where the plan and the audience disagreed."]
+    ]
+  },
+  {
+    id:"content", issue:"issue 06", kick:"content",
+    shots:[
+      ["images/projects/reel-1.mp4","The I love London reel. My idea, shot and directed around London","wide","images/projects/reel-1-poster.jpg","https://framerusercontent.com/assets/Ku3uQsPbq2QiIMGUugFMcf7Gv8.mp4"],
+      ["images/projects/reel-2.mp4","The skit. My edit, cut so the punchline lands","pair","images/projects/reel-2-poster.jpg","https://framerusercontent.com/assets/mlEl0InhhEVx3IPR3P4sNWZ1io.mp4"],
+      ["images/projects/content-1.jpg","What it did: 32,614 views, 23,949 accounts reached, 27 second average watch","pair","733x1500"]
+    ],
+    bg:"#00786E", ink:"#FFF3B8", rot:26,
+    mast:"REELS", mastSize:44, dateline:"london", flash:"32,614<br>views",
+    hero:"THREE SECONDS TO EARN THIRTY", coverSub:"Concept, direction and the edit", pop:"#FFE45E", popInk:"#1B0E3F",
+    sub:"Short-form video: concept, direction and the edit, including a reel shot across London in 'I love London' t-shirts.",
+    facts:[["role","concept \u00b7 direction \u00b7 edit"],["reach","23,949 accounts"],["one reel","32,614 views, 27s average watch"]],
+    pull:"The work is invisible when it's right: trimming the pacing so the punchline actually hits.",
+    body:[
+      ["i love london","I came up with the idea and directed this reel, a playful concept shot around london in 'i love london' t-shirts."],
+      ["the skit","I edited a real-life skit for an Instagram account. The work was in finding the right moments, trimming the pacing so the punchline actually lands, and layering in text and timing that make it feel effortless to watch."],
+      ["why it matters","Short-form is the fastest feedback loop in marketing. You learn in a day whether an idea was as funny, clear or interesting as you thought."]
+    ]
+  }
+];
+
+function coverHTML(p, i, fanned){
+  return '<button class="cover" data-id="'+p.id+'" '+
+    'style="--cv:'+p.bg+';--cv-ink:'+p.ink+';--cv-pop:'+p.pop+';--cv-popink:'+p.popInk+';--mast:'+p.mastSize+'px;--rot:'+p.rot+'deg;--i:'+i+';'+'" '+
+    'aria-label="read the full report: '+p.mast.toLowerCase()+'">'+
+      '<h3 class="cv-mast">'+p.mast+'</h3>'+
+      '<div class="cv-dateline"><span>'+p.issue+'</span><span>'+p.dateline+'</span></div>'+
+      '<div class="cv-body">'+
+        '<span class="cv-flash"><span>'+p.flash+'</span></span>'+
+        '<p class="cv-kick">'+p.kick+'</p>'+
+        '<p class="cv-hero">'+p.hero+'</p>'+
+        '<p class="cv-sub">'+p.coverSub+'</p>'+
+      '</div>'+
+      '<div class="cv-foot"><span class="cv-read">read the report</span><span class="barcode"></span></div>'+
+    '</button>';
+}
+
+document.getElementById('covers').innerHTML = ISSUES.map((p,i)=>coverHTML(p,i,true)).join('');
+document.getElementById('rack').innerHTML   = ISSUES.map((p,i)=>coverHTML(p,i,false)).join('');
+
+const reader = document.getElementById('reader');
+let lastFocus = null;
+function openIssue(id){
+  const p = ISSUES.find(x=>x.id===id);
+  if(!p) return;
+  lastFocus = document.activeElement;
+  document.getElementById('reader-issue').textContent = p.issue + ' \u00b7 muskaan verma';
+  document.getElementById('feature-kicker').textContent = p.kick;
+  document.getElementById('feature-title').textContent = p.mast.toLowerCase();
+  document.getElementById('feature-sub').textContent = p.sub;
+  document.getElementById('feature-band').style.background = p.bg;
+  document.getElementById('feature-facts').innerHTML =
+    p.facts.map(f=>'<div class="fact"><span class="label">'+f[0]+'</span><b>'+f[1]+'</b></div>').join('');
+  document.getElementById('feature-pull').textContent = p.pull;
+  document.getElementById('feature-body').innerHTML =
+    p.body.map(s=>'<section><h3>'+s[0]+'</h3><p>'+s[1]+'</p></section>').join('') +
+    (p.link ? '<p style="margin:0"><a class="ext" href="'+p.link[0]+'" target="_blank" rel="noopener">'+p.link[1]+' &rarr;</a></p>' : '');
+  document.getElementById('feature-shots').innerHTML = (p.shots || []).map(function(sh){
+    var kind = sh[2] || '';
+    var isVideo = /\.(mp4|m4v|mov|webm)$/i.test(sh[0]);
+    var extra = sh[3] || '';
+    var wh = extra.split('x');
+    var media = isVideo
+      ? '<video src="'+sh[0]+'" controls playsinline preload="metadata"'+
+        (extra ? ' poster="'+extra+'"' : '')+'></video>'
+      : '<img src="'+sh[0]+'" alt="'+sh[1]+'" loading="lazy"'+
+        (wh.length === 2 ? ' width="'+wh[0]+'" height="'+wh[1]+'"' : '')+'>';
+    var caption = sh[1] + (isVideo
+      ? ' <a class="vid-open" href="'+(sh[4] || sh[0])+'" target="_blank" rel="noopener">open the video &rarr;</a>'
+      : '');
+    return '<figure class="shot'+(kind ? ' shot-'+kind : '')+'">' + media +
+           '<figcaption>'+caption+'</figcaption></figure>';
+  }).join('');
+  reader.hidden = false;
+  reader.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('closeReader').focus();
+}
+function closeIssue(){
+  reader.classList.remove('is-open');
+  reader.hidden = true;
+  document.body.style.overflow = '';
+  if(lastFocus) lastFocus.focus();
+}
+document.addEventListener('click', e => {
+  const c = e.target.closest('.cover');
+  if(c) openIssue(c.dataset.id);
+});
+document.getElementById('closeReader').addEventListener('click', closeIssue);
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && !reader.hidden) closeIssue(); });
+
+const LAYERS = {
+  1:["curiosity","The layer everything else soaks up from. I learn tools because a project needs them: Framer, HubSpot, Claude Code, Canva, and a whole website I taught myself to build. For Mingle it meant sitting down with retired adults and letting the interviews, not the assumptions, decide the USPs."],
+  2:["strategy","What a brand should stand for, and who it is for. Positioning, personas, competitive landscape and a costed six-month go-to-market for UCL's entrepreneurial marketing module, plus business modelling, Ansoff and value stream mapping on AprilCares health."],
+  3:["building","I make the thing. Figma prototypes and an MVP canvas for Blackspin, a whole interactive pitch site for Space NK, and this magazine, made with Claude Code."],
+  4:["storytelling","Getting it in front of people and making them care. A live Facebook ads campaign off the back of a strategy deck, Mingle pitched to judges with timeline, budget and risks attached, and reels with three seconds to hold someone."],
+  5:["taste","The last five percent nobody asks for. The pacing of an edit so the punchline lands, the risks slide nobody requested, the line of copy rewritten a seventh time. It's the layer people taste first."]
+};
+const tabs = Array.from(document.querySelectorAll('.layer'));
+/* where each layer sits on the photograph, as a fraction of its height */
+const BANDS = {5:0.185, 4:0.395, 3:0.520, 2:0.645, 1:0.795};
+
+function drawConnectors(){
+  const fig = document.querySelector('.tira-fig');
+  const img = document.getElementById('tiraImg');
+  const svg = document.getElementById('connectors');
+  if(!fig || !img || !svg) return;
+  if(getComputedStyle(svg).display === 'none') return;
+  const f = fig.getBoundingClientRect(), p = img.getBoundingClientRect();
+  if(!p.height) return;
+  svg.setAttribute('viewBox', '0 0 ' + f.width + ' ' + f.height);
+  const active = document.querySelector('.layer[aria-selected="true"]');
+  const activeN = active ? active.dataset.layer : null;
+  svg.innerHTML = tabs.map(function(btn){
+    const n = btn.dataset.layer, b = btn.getBoundingClientRect();
+    const x1 = p.right - f.left - 10;
+    const y1 = p.top - f.top + BANDS[n] * p.height;
+    const x2 = b.left - f.left - 12;
+    const y2 = b.top - f.top + b.height / 2;
+    const c = Math.max(24, (x2 - x1) * 0.45);
+    return '<g class="conn' + (n === activeN ? ' conn-on' : '') + '" data-conn="' + n + '">' +
+      '<path class="conn-line" d="M' + x1 + ' ' + y1 + ' C' + (x1 + c) + ' ' + y1 + ', ' + (x2 - c) + ' ' + y2 + ', ' + x2 + ' ' + y2 + '"></path>' +
+      '<polygon class="conn-head" points="' + (x2 + 9) + ',' + y2 + ' ' + x2 + ',' + (y2 - 5.5) + ' ' + x2 + ',' + (y2 + 5.5) + '"></polygon></g>';
+  }).join('');
+}
+
+function selectLayer(btn){
+  tabs.forEach(t=>t.setAttribute('aria-selected', String(t===btn)));
+  const n = btn.dataset.layer;
+  drawConnectors();
+  document.getElementById('tira-label').textContent = 'layer 0' + n;
+  document.getElementById('tira-title').textContent = LAYERS[n][0];
+  document.getElementById('tira-body').textContent  = LAYERS[n][1];
+}
+tabs.forEach((btn,i)=>{
+  btn.addEventListener('click', ()=>selectLayer(btn));
+  btn.addEventListener('keydown', e=>{
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();const n=tabs[(i+1)%tabs.length];n.focus();selectLayer(n);}
+    if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();const n=tabs[(i-1+tabs.length)%tabs.length];n.focus();selectLayer(n);}
+  });
+});
+selectLayer(tabs.find(t=>t.dataset.layer==='2'));
+
+function fitMastheads(){
+  document.querySelectorAll('.cv-mast').forEach(function(m){
+    var base = parseFloat(m.dataset.base || getComputedStyle(m).fontSize);
+    m.dataset.base = base;
+    var size = base, guard = 0;
+    m.style.fontSize = size + 'px';
+    while(m.scrollWidth > m.clientWidth && size > 10 && guard++ < 80){
+      size -= 1; m.style.fontSize = size + 'px';
+    }
+  });
+}
+
+/* ---------- the contact sheet ---------- */
+const BRANDS = [
+  {name:"The Whole Truth", cat:"food, india", frame:"12a", colour:"#1F3CFF",
+   why:"They print the full ingredient list on the front of the pack, in a size you can actually read. Shashank writes these long posts pulling apart what \u2018no added sugar\u2019 really means on everyone else\u2019s label. Building a brand on being the one who explains the trick is a strange move, and it works, because you end up trusting them on everything else."},
+  {name:"Dash Water", cat:"drinks, uk", frame:"13", colour:"#C2185B",
+   why:"Made with wonky fruit, the stuff supermarkets turn down for being the wrong shape. No sugar, no sweeteners, just the fruit. The sustainability sits inside the product itself, in the fruit they choose to buy."},
+  {name:"Ottolenghi", cat:"food, london", frame:"13a", colour:"#D81E0F",
+   why:"His name turned into an adjective. You can call a dish a bit Ottolenghi and people know you mean the herbs, the lemon, the pomegranate scattered on top. The Guardian column, the cookbooks and the delis all feed each other, so the recipe you cooked on sunday is what walks you into the shop on Upper Street."},
+  {name:"The Face", cat:"media, uk", frame:"14", colour:"#00786E",
+   why:"It made the British style press matter in the eighties, then folded in 2004. Brought back in 2019 for an audience who never read the first one, and somehow not turned into a nostalgia project. The typography is still doing most of the work."},
+  {name:"11.11", cat:"fashion, india", frame:"14a", colour:"#1B0E3F",
+   why:"Hand-spun, hand-woven, dyed with natural indigo. Each piece is tagged so you can follow it back through the weaver to the farm the cotton came off. Everyone says slow fashion. They publish the chain and let you check it."},
+  {name:"Miu Miu", cat:"fashion", frame:"15", colour:"#7A2E8F",
+   why:"The micro mini, then the ballet flats, then handing out books at the literary club. Two years of selling a character, and the silhouette was in Zara within a season."}
+];
+
+const csFrames = document.getElementById('csFrames');
+csFrames.innerHTML = BRANDS.map(function(b,i){
+  return '<button class="cs-frame" role="tab" data-i="' + i + '" style="--fc:' + b.colour + '" aria-selected="false">' +
+    '<svg class="cs-ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">' +
+      '<ellipse cx="50" cy="50" rx="46" ry="44" transform="rotate(-3 50 50)"></ellipse></svg>' +
+    '<span class="cs-name">' + b.name + '</span>' +
+    '<span class="cs-cat">' + b.cat + '</span>' +
+    '<span class="cs-no">' + b.frame + '</span>' +
+  '</button>';
+}).join('');
+
+const csTabs = Array.from(document.querySelectorAll('.cs-frame'));
+function pickFrame(i){
+  const b = BRANDS[i];
+  csTabs.forEach(function(t){ t.setAttribute('aria-selected', String(Number(t.dataset.i) === i)); });
+  document.getElementById('csMark').textContent = 'frame ' + b.frame;
+  document.getElementById('csWhy').textContent = b.why;
+}
+csTabs.forEach(function(t,i){
+  t.addEventListener('click', function(){ pickFrame(i); });
+  t.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ e.preventDefault(); const n = csTabs[(i+1) % csTabs.length]; n.focus(); pickFrame((i+1) % csTabs.length); }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); const j = (i-1+csTabs.length) % csTabs.length; csTabs[j].focus(); pickFrame(j); }
+  });
+});
+pickFrame(0);
+
+
+function layout(){
+  fitMastheads();
+  const bag = document.getElementById('bagPhoto');
+  const covers = document.getElementById('covers');
+  if(bag && covers && bag.getBoundingClientRect().height){
+    covers.style.bottom = Math.round(bag.getBoundingClientRect().height * 0.52) + 'px';
+  }
+  drawConnectors();
+}
+window.addEventListener('resize', layout);
+window.addEventListener('load', layout);
+document.querySelectorAll('.tira-photo img, .bag-photo').forEach(function(im){
+  if(im.complete) layout(); else im.addEventListener('load', layout);
+});
+/* keep the edition line on the current month */
+(function(){
+  var el = document.getElementById('editionMonth');
+  if(!el) return;
+  var months = ['january','february','march','april','may','june',
+                'july','august','september','october','november','december'];
+  el.textContent = months[new Date().getMonth()] + ' edition';
+})();
+
+layout();
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(layout); }
+
+/* fan the magazines out, and drop the notes onto the desk, when they scroll into view */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = [
+    {el: document.getElementById('covers'), cls: 'fan-in'},
+    {el: document.querySelector('.desk-papers'), cls: 'desk-in'}
+  ].filter(t => t.el);
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(t => t.el.classList.add(t.cls));
+    return;
+  }
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      const hit = targets.find(t => t.el === e.target);
+      if(hit) e.target.classList.add(hit.cls);
+      io.unobserve(e.target);
+    });
+  }, {threshold: 0.2, rootMargin: '0px 0px -8% 0px'});
+  targets.forEach(t => io.observe(t.el));
+  /* safety net: never leave anything stranded invisible */
+  setTimeout(function(){ targets.forEach(t => t.el.classList.add(t.cls)); }, 2500);
+})();
+</script>
