@@ -349,7 +349,8 @@ section{padding:clamp(60px,8vw,118px) 0 0}
 
 /* ---------- colophon ---------- */
 footer{margin-top:clamp(64px,8vw,110px);border-top:2px solid var(--ink);padding:48px 0 70px}
-.colophon{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.colophon{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap}
+.colophon .contact-list:last-child{text-align:right;align-items:flex-end}
 .colophon a{text-decoration:none;border-bottom:2px solid var(--red)}
 .colophon a:hover{color:var(--red)}
 .contact-list{display:flex;flex-direction:column;gap:9px;font-size:16px}
@@ -868,11 +869,6 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
         <span class="label">currently</span>
         <span>based in london / india</span>
         <span>open to full-time roles in marketing<br>&amp; founder's office</span>
-      </div>
-      <div class="contact-list">
-        <span class="label">colophon</span>
-        <span>set in bodoni moda, archivo<br>&amp; dm mono</span>
-        <span>made with claude code</span>
       </div>
     </div>
   </footer>
