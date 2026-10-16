@@ -43,6 +43,13 @@
   --blue-ink:#1F3CFF;
 }
 :root{color-scheme:light}
+
+/* film grain over the whole page */
+#grainLayer{
+  position:fixed;inset:0;pointer-events:none;z-index:150;opacity:.42;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
 *{box-sizing:border-box}
 body{
   margin:0;background:var(--ground);color:var(--ink);
@@ -489,6 +496,7 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 </script>
 </head>
 <body>
+<div id="grainLayer" aria-hidden="true"></div>
 <div class="wrap">
   <header class="topbar">
     <span class="label">muskaan verma &nbsp;&middot;&nbsp; issue no. 01</span>
